@@ -17,18 +17,17 @@ public class Main {
         Main.printStream = printStream;
         printStream.println("Input city");
         String city  = scanner.nextLine();
-        printStream.println("Convert to Fahrenheit(F) or Celsius(C) ?");
+        printStream.println("Convert to Fahrenheit(Fahr) or Celsius(C) ?");
         String mode = scanner.nextLine();
 
-        //if (!checkCorrect(mode)) printStream.println("error.");
         if (mode.equals("С")) {
             getCelsius(city);
-            //System.out.println();
-        }
-        //else if (mode.equals("F")) {
-         //   result = convertFtoC();
-        //    break;
-        //}
+
+        } else if (mode.equals("Fahr")) {
+            getFahrenheit(city);
+        } else
+            System.out.println("incorrect input");
+
 
     }
 
@@ -36,15 +35,12 @@ public class Main {
     public static void main(String[] args) {
 
         Main inputLocation = new Main(System.in, System.out);
-      //  String city  = scanner.nextLine();
-        //System.out.println(city);
+
 
 
     }
 
     public void getCelsius(String city) {
-
-        //String getUserCity = "moscow";
         String url = "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&units=metric&appid=e34e4c19711deb09f38f50619aa775c1";
@@ -53,11 +49,27 @@ public class Main {
 
             if (!output.isEmpty()) {
                 JSONObject obj = new JSONObject(output);
-                System.out.println(obj.getJSONObject("main").getDouble("temp"));
+                System.out.println((int)obj.getJSONObject("main").getDouble("temp"));
 
             }
         }
     }
+
+    public void getFahrenheit(String city) {
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=" +
+                city +
+                "&units=metric&appid=e34e4c19711deb09f38f50619aa775c1";
+        if(!city.equals("")) {
+            String output = getUrlContent(url);
+
+            if (!output.isEmpty()) {
+                JSONObject obj = new JSONObject(output);
+                System.out.println((int)(1.8 * (int) obj.getJSONObject("main").getDouble("temp") + 32));
+
+            }
+        }
+    }
+
             private static String getUrlContent(String urlAdress) {
                 StringBuffer content = new StringBuffer();
 
