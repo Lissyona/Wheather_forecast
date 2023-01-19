@@ -7,6 +7,19 @@
     <groupId>groupId</groupId>
     <artifactId>Wheather_forecast</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>20220924</version>
+            </dependency>
+    </dependencies>
+    <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+
 
 
 </project>
