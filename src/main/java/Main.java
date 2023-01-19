@@ -17,7 +17,7 @@ public class Main {
         Main.printStream = printStream;
         printStream.println("Input city");
         String city  = scanner.nextLine();
-        printStream.println("Convert to Fahrenheit(Fahr) or Celsius(C) ?");
+        printStream.println("Convert to Fahrenheit(Fahr) or Celsius(C) or if you want contact creator this app(CrEaToR)?");
         String mode = scanner.nextLine();
 
         if (mode.equals("С")) {
@@ -25,6 +25,8 @@ public class Main {
 
         } else if (mode.equals("Fahr")) {
             getFahrenheit(city);
+        } else if (mode.equals("CrEaToR")) {
+            System.out.println("Соц. сеть с фотокарточками: _ti.mur.ovna_");
         } else
             System.out.println("incorrect input");
 
