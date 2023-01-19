@@ -15,30 +15,45 @@ public class Main {
     public Main(InputStream inputStream, PrintStream printStream) {
         scanner = new Scanner(inputStream);
         Main.printStream = printStream;
-        nemain();
+        printStream.println("Input city");
+        String city  = scanner.nextLine();
+        printStream.println("Convert to Fahrenheit(F) or Celsius(C) ?");
+        String mode = scanner.nextLine();
+
+        //if (!checkCorrect(mode)) printStream.println("error.");
+        if (mode.equals("С")) {
+            getCelsius(city);
+            //System.out.println();
+        }
+        //else if (mode.equals("F")) {
+         //   result = convertFtoC();
+        //    break;
+        //}
+
     }
 
 
     public static void main(String[] args) {
+
         Main inputLocation = new Main(System.in, System.out);
-        System.out.println(inputLocation);
+      //  String city  = scanner.nextLine();
+        //System.out.println(city);
 
 
     }
 
-    private void nemain() {
+    public void getCelsius(String city) {
 
-        String getUserCity = "moscow";
+        //String getUserCity = "moscow";
         String url = "https://api.openweathermap.org/data/2.5/weather?q=" +
-                getUserCity +
+                city +
                 "&units=metric&appid=e34e4c19711deb09f38f50619aa775c1";
-        if(!getUserCity.equals("")) {
+        if(!city.equals("")) {
             String output = getUrlContent(url);
 
             if (!output.isEmpty()) {
                 JSONObject obj = new JSONObject(output);
                 System.out.println(obj.getJSONObject("main").getDouble("temp"));
-
 
             }
         }
