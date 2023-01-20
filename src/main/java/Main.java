@@ -20,7 +20,7 @@ public class Main {
         printStream.println("Convert to Fahrenheit(Fahr) or Celsius(C) or if you want contact creator this app(CrEaToR)?");
         String mode = scanner.nextLine();
 
-        if (mode.equals("С")) {
+        if (mode.equals("C")) {
             getCelsius(city);
 
         } else if (mode.equals("Fahr")) {
