@@ -22,7 +22,6 @@ public class Main {
 
         if (mode.equals("C")) {
             getCelsius(city);
-
         } else if (mode.equals("Fahr")) {
             getFahrenheit(city);
         } else if (mode.equals("CrEaToR")) {
@@ -42,7 +41,7 @@ public class Main {
 
     }
 
-    public void getCelsius(String city) {
+    public String getCelsius(String city) {
         String url = "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&units=metric&appid=e34e4c19711deb09f38f50619aa775c1";
@@ -51,13 +50,14 @@ public class Main {
 
             if (!output.isEmpty()) {
                 JSONObject obj = new JSONObject(output);
-                System.out.println((int)obj.getJSONObject("main").getDouble("temp"));
+                return String.valueOf((int)obj.getJSONObject("main").getDouble("temp"));
 
             }
         }
+        return null;
     }
 
-    public void getFahrenheit(String city) {
+    public String getFahrenheit(String city) {
         String url = "https://api.openweathermap.org/data/2.5/weather?q=" +
                 city +
                 "&units=metric&appid=e34e4c19711deb09f38f50619aa775c1";
@@ -66,10 +66,11 @@ public class Main {
 
             if (!output.isEmpty()) {
                 JSONObject obj = new JSONObject(output);
-                System.out.println((int)(1.8 * (int) obj.getJSONObject("main").getDouble("temp") + 32));
+               return String.valueOf((int)(1.8 * (int) obj.getJSONObject("main").getDouble("temp") + 32));
 
             }
         }
+        return null;
     }
 
             private static String getUrlContent(String urlAdress) {

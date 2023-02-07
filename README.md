@@ -1,3 +1,6 @@
+![Tests](https://github.com/Lissyona/Wheather_forecast/actions/workflows/maven-test.yml/badge.svg?branch=main)
+
+![Tests](https://github.com/Lissyona/Wheather_forecast/actions/workflows/maven-test.yml/badge.svg?branch=dev)
 # Wheather forecast
 
 ## Описание
